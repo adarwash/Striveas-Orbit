@@ -1,6 +1,10 @@
 <?php 
     class Home extends Controller{
         public function index(){
-            $this->view('home/index',['title' => 'Welcome']);
+            
+            $db = new EasySQL(DB1);
+            $t1 = $db->select('SELECT TOP 10 * FROM Person.Person');
+            var_dump($t1);
+            $this->view('home/index');
         }
     }
